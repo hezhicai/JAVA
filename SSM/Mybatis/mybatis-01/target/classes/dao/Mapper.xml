@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UserDao">
+<!--    查询所有用户-->
+    <select id="listUser" resultType="domain.User">
+        select * from user
+    </select>
+
+<!--    create-->
+    <insert id="insertUser" parameterType="map" useGeneratedKeys="true" keyProperty="id">
+        insert into user(name,pwd) values (#{name},#{pwd})
+    </insert>
+<!--    多行插入-->
+    <insert id="insertUser2" parameterType="list" useGeneratedKeys="true" keyProperty="id">
+        insert into user(name,pwd) values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.name},#{item.pwd})
+        </foreach>
+    </insert>
+<!--    read-->
+    <select id="readUser" resultType="domain.User" parameterType="hashMap" >
+        select * from user where name=#{name}
+    </select>
+    <select id="readUser1" resultType="domain.User"  >
+select  * from user where name=#{name} and pwd=#{pwd}
+    </select>
+<!--    update-->
+    <update id="updateUser" parameterType="map" >
+        update  user set name=#{newName} ,pwd=#{pwd} where name=#{name}
+    </update>
+<!--    delete  -->
+    <delete id="deleteUser" parameterType="map">
+        delete from user where name=#{name}
+    </delete>
+<!--    模糊查询-->
+    <select id="getLikeUser" resultType="domain.User" >
+        select * from user where name like "%"#{value}"%"
+    </select>
+<!--    limit分页查询-->
+    <select id="getLimitUser" parameterType="map" resultType="user">
+        select  * from user limit #{startIndex},#{pageSize}
+    </select>
+
+</mapper>

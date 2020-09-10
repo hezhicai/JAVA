@@ -1,0 +1,7 @@
+dao\ManagerDao.class
+domain\Manager.class
+domain\City.class
+dao\CityDao.class
+domain\User.class
+dao\UserDao.class
+domain\PageBean.class

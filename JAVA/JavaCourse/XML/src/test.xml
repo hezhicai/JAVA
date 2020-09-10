@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/css" href="a.css" ?>
+<usres>
+<user>
+   <name id="1">张三
+   </name>
+    <age type="value">
+        18
+    </age>
+    <br/>
+
+</user>
+<user>
+   <name id="2">王五
+   </name>
+    <age type="value">
+        19
+    </age>
+    <br/>
+</user>
+</usres>

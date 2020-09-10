@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--mybatis的核心配置文件-->
+<configuration>
+<!--   读取配置文件db.properties -->
+    <properties resource="db.properties" />
+    <settings>
+        <!--    日志工具-->
+        <setting name="logImpl" value="LOG4J"/>
+                    <!--    懒加载的开关    -->
+            <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>
+<!--    取 别名-->
+    <typeAliases>
+        <package name="domain"/>
+    </typeAliases>
+<!--    数据库环境-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123"/>
+            </dataSource>
+        </environment>
+    </environments>
+<!--    注册Java层的mapper文件-->
+    <mappers>
+<!--        mapper映射-->
+        <mapper resource="dao/Mapper.xml"/>
+<!--        注解开发-->
+        <mapper class="dao.UserDao2"/>
+<!--        pojo-->
+        <mapper resource="pojo/AccountMapper.xml"/>
+        <mapper resource="pojo/AccountMapper02.xml"/>
+        <mapper resource="pojo/AccountMapper03.xml"/>
+        <mapper resource="pojo/AccountMapper04.xml"/>
+    </mappers>
+
+</configuration>

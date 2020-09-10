@@ -1,0 +1,47 @@
+spring:
+  datasource:
+    username: root
+    password: 123
+    url: jdbc:mysql:///boot01?serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+##自定义的 druid属性
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,slf4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+
+  #禁用模板引擎的缓存
+  thymeleaf:
+    cache: false
+  ##国际化配置文件
+  messages:
+    basename: i18n.login
+  #设置输入日期的格式
+  mvc:
+    format:
+      date: dd/MM/yyyy
+  #执行建表文件
+#  batch:
+#    schema:
+#      - classpath:department.sql
+
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml #指定全局配置文件的位置
+  mapper-locations: classpath:mybatis/mapper/*.xml  #指定sql映射文件的位置
+
+#端口号
+server:
+  port: 8083

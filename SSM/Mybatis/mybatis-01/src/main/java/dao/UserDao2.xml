@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UserDao2">
+<!--   sql语句复用-->
+    <sql id="defaultUser">
+        select  * from user
+    </sql>
+<!--    if条件查询-->
+    <select id="findUserByCondition" resultType="domain.User" parameterType="domain.User">
+
+--         select * from user
+<include refid="defaultUser"/>
+        <where>
+            <if test="name != null and pwd !=null">
+                name=#{name} and pwd=#{pwd}
+            </if>
+        </where>
+
+    </select>
+<!--foreach查询-->
+<select id="findUserByCondition2" resultType="domain.User" parameterType="list">
+    <include refid="defaultUser"/>
+    <where>
+
+        <if test="list != null and list.size()>0">
+            <foreach collection="list" item="name" separator="," open="name in (" close=")">
+               #{name}
+            </foreach>
+        </if>
+    </where>
+
+
+</select>
+</mapper>

@@ -1,0 +1,78 @@
+package refectt.UseofClassObject;
+
+import java.util.Objects;
+
+public class Student {
+    //成员变量
+  private String name="何小小";
+    int age=19;
+    char sex='男';
+    //构造方法一
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    //构造方法二
+    public Student(String name, char sex) {
+        this.name = name;
+        this.sex = sex;
+    }
+//构造方法三
+    public Student(){
+
+    }
+    public void like(){
+        System.out.println("喜欢");
+    }
+    public void like2(String str){
+        System.out.println("喜欢"+str);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public char getSex() {
+        return sex;
+    }
+
+    public void setSex(char sex) {
+        this.sex = sex;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return age == student.age &&
+                sex == student.sex &&
+                name.equals(student.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, sex);
+    }
+}

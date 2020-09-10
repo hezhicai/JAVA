@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SkingStudentManage:Web2 exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/SkingStudentManage_Web2_exploded</output-path>
+    <root id="root">
+      <element id="artifact" artifact-name="SkingStudentManage:Web exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="mysql-connector-java-5.1.37-bin" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

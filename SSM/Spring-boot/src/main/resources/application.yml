@@ -1,0 +1,30 @@
+
+server:
+  port: 8083
+spring:
+  profiles:
+    active:
+---
+
+person:
+        lastName: 我是没${random.value}
+        age: ${random.int(9)}
+        boss: true
+        birth: 2018/2/6
+        maps: {name:zhangsan,age:18}
+        lists: [dog,cat,cow]
+        dog:
+            name: xioahu${person.lastName}
+            age: 12
+---
+server:
+  port: 8084
+spring:
+  profiles: dev
+---
+server:
+  port: 8085
+
+spring:
+  profiles: pro
+

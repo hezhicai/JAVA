@@ -1,0 +1,17 @@
+2020-07-18 16:08:37.839  INFO 15196 --- [main] spingboot.demo.DemoApplicationTests      : Starting DemoApplicationTests on DESKTOP-KIU5STM with PID 15196 (started by hezhicai in D:\IdeaProjects\Spring-boot)
+2020-07-18 16:08:37.840 DEBUG 15196 --- [main] spingboot.demo.DemoApplicationTests      : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-18 16:08:37.841  INFO 15196 --- [main] spingboot.demo.DemoApplicationTests      : No active profile set, falling back to default profiles: default
+2020-07-18 16:08:39.555  INFO 15196 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-18 16:08:39.918  INFO 15196 --- [main] spingboot.demo.DemoApplicationTests      : Started DemoApplicationTests in 2.539 seconds (JVM running for 3.815)
+2020-07-18 16:08:40.358  INFO 15196 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-07-18 16:08:44.756  INFO 2536 --- [main] spingboot.demo.theTest                   : Starting theTest on DESKTOP-KIU5STM with PID 2536 (started by hezhicai in D:\IdeaProjects\Spring-boot)
+2020-07-18 16:08:44.758 DEBUG 2536 --- [main] spingboot.demo.theTest                   : Running with Spring Boot v2.3.1.RELEASE, Spring v5.2.7.RELEASE
+2020-07-18 16:08:44.759  INFO 2536 --- [main] spingboot.demo.theTest                   : No active profile set, falling back to default profiles: default
+2020-07-18 16:08:46.887  INFO 2536 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-18 16:08:47.199  INFO 2536 --- [main] spingboot.demo.theTest                   : Started theTest in 3.116 seconds (JVM running for 4.73)
+2020-07-18 16:08:47.431 TRACE 2536 --- [main] spingboot.demo.theTest                   : trace
+2020-07-18 16:08:47.431 DEBUG 2536 --- [main] spingboot.demo.theTest                   : debug
+2020-07-18 16:08:47.431  INFO 2536 --- [main] spingboot.demo.theTest                   : info
+2020-07-18 16:08:47.431  WARN 2536 --- [main] spingboot.demo.theTest                   : warn
+2020-07-18 16:08:47.431 ERROR 2536 --- [main] spingboot.demo.theTest                   : error
+2020-07-18 16:08:47.445  INFO 2536 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

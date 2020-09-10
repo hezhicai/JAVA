@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pojo.AccountMapper">
+<!--    定义一对一 映射结果集-->
+    <resultMap id="accountMap" type="domain.AccountUser">
+<!--        aid 是查询后的表的字段名切忌-->
+        <id property="id" column="aid"/>
+        <result column="uid" property="uid"/>
+        <result column="money" property="money"/>
+<!--        关联的user表-->
+        <association property="user"  javaType="domain.User">
+            <id property="id" column="id"/>
+            <id property="name" column="name"/>
+            <id property="pwd" column="pwd"/>
+        </association>
+    </resultMap>
+<!--    查询所有账户以及用户-->
+    <select id="listAccount" resultMap="accountMap">
+    SELECT user.*,account.`id` AS aid,account.`money`,account.`uid` FROM USER,account WHERE user.`id`=account.`uid`
+    </select>
+<!--    定义多对多映射-->
+    <resultMap id="userMap" type="domain.UserAccount">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="pwd" property="pwd"/>
+<!--        collection 是用于建立一对多中集合属性的对应关系
+ofType 用于指定集合元素的数据类型-->
+        <collection property="accounts" ofType="domain.Account">
+            <id property="id" column="aid"/>
+            <result property="uid" column="uid"/>
+            <result property="money" column="money"/>
+        </collection>
+    </resultMap>
+<!--    查询所有用户的账户-->
+    <select id="listUser" resultMap="userMap">
+SELECT user.*,account.`id` AS aid,account.`money`,account.`uid` FROM USER LEFT OUTER JOIN account ON user.`id`=account.`uid`
+    </select>
+
+<!--    多对多的映射-->
+    <resultMap id="userRoleMap" type="domain.UserRole">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="pwd" property="pwd"/>
+<!--        关联的角色表-->
+        <collection property="roles" ofType="domain.Role">
+            <id property="id" column="rid"/>
+            <result property="ROLE_NAME" column="ROLE_NAME"/>
+            <result property="ROLE_DESC" column="ROLE_DESC"/>
+        </collection>
+    </resultMap>
+    <select id="listUserRole" resultMap="userRoleMap">
+        SELECT user.*,role.`ID` rid,role.`ROLE_NAME`,role.`ROLE_DESC` FROM USER JOIN user_role ON user.`id`=user_role.`UID` JOIN role ON user_role.`RID`=role.`ID`
+    </select>
+</mapper>
