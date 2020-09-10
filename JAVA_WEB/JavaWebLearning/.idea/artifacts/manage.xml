@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="manage">
+    <output-path>$PROJECT_DIR$/out/artifacts/manage</output-path>
+    <root id="archive" name="manage.war">
+      <element id="directory" name="WEB_INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="mvc_case" />
+        </element>
+      </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/mvc_case/web" />
+    </root>
+  </artifact>
+</component>

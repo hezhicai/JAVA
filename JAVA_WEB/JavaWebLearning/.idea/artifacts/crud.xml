@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="crud">
+    <output-path>$PROJECT_DIR$/out/artifacts/crud</output-path>
+    <root id="archive" name="crud.war">
+      <element id="dir-copy" path="$PROJECT_DIR$/mvc_case/web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="mvc_case" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lib (3)" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
